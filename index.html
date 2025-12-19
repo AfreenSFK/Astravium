@@ -1,107 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Astravium Solutions Pvt. Ltd.</title>
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Source Sans 3', Arial, sans-serif;
   line-height: 1.6;
   color: #222;
+  background: #ffffff;
 }
+
 header {
-  background: #0f2a44;
+  background: linear-gradient(180deg, #0f2a44 0%, #12385c 100%);
   color: #ffffff;
-  padding: 90px 20px;
+  padding: 110px 20px 90px 20px;
   text-align: center;
 }
+
 header h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-family: 'Source Sans 3', Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  margin: 16px 0 12px 0;
 }
+
 header p {
   font-size: 18px;
-  max-width: 800px;
-  margin: 0 auto 20px auto;
+  max-width: 720px;
+  margin: 0 auto 30px auto;
 }
+
 .button-group a {
   display: inline-block;
-  margin: 10px;
-  padding: 12px 24px;
+  margin: 8px;
+  padding: 14px 30px;
   background: #ffffff;
   color: #0f2a44;
   text-decoration: none;
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 6px;
 }
+
 section {
-  padding: 80px 20px;
-  padding: 60px 20px;
+  padding: 56px 20px;
+}
+
+section.hero {
+  padding: 90px 20px 70px 20px;
+}
+
+section.compact {
+  padding: 44px 20px;
+}
+
+section.spacious {
+  padding: 72px 20px;
+}
+
+.section-inner {
   max-width: 1100px;
   margin: auto;
 }
+
 section h2 {
-  font-size: 28px;
-  margin-bottom: 30px;
+  font-size: 30px;
+  margin-bottom: 28px;
   text-align: center;
 }
+
 section p {
   max-width: 760px;
-  max-width: 900px;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 18px auto;
 }
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 36px;
 }
+
 .card {
-  border: 1px solid #dddddd;
-  padding: 28px;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 34px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
 }
+
 .card h3 {
   margin-top: 0;
+  margin-bottom: 14px;
 }
-footer {
-  background: #0f2a44;
-  color: #ffffff;
-  padding: 60px 20px;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.15);
-  background: #0f2a44;
-  color: #ffffff;
-  padding: 40px 20px;
-  text-align: center;
+
+.alt-section {
+  background: #f6f7f9;
 }
-footer p {
-  margin: 6px 0;
-}
+
 form {
   max-width: 600px;
   margin: auto;
 }
+
 input, textarea {
   width: 100%;
   padding: 14px;
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   border: 1px solid #cccccc;
-  border-radius: 4px;
+  border-radius: 6px;
 }
+
 button {
-  padding: 14px 24px;
+  padding: 16px;
   width: 100%;
-  padding: 12px 20px;
   background: #0f2a44;
   color: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+}
+
+footer {
+  background: #0f2a44;
+  color: #ffffff;
+  padding: 48px 20px;
+  text-align: center;
+}
+
+footer p {
+  margin: 6px 0;
 }
 </style>
 </head>
@@ -110,7 +139,7 @@ button {
 <header>
   <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; margin-bottom:40px;">
     <img src="logo.jpeg" alt="Astravium Solutions Logo" style="height:110px;">
-    <div style="font-size:34px; font-weight:700; letter-spacing:0.5px;">Astravium Solutions Pvt. Ltd.</div>
+    <div style="font-family:'Inter', Arial, sans-serif; font-size:42px; font-weight:700; letter-spacing:0.6px;">Astravium Solutions Pvt. Ltd.</div>
   </div>
   <h1>Reliable Support Services That Strengthen Your Business</h1>
   <p>We deliver dependable, scalable, and cost-effective support services that keep your operations running smoothly and enable confident growth.</p>
@@ -120,13 +149,13 @@ button {
   </div>
 </header>
 
-<section>
+<section class="compact">
   <h2>Who We Are</h2>
   <p>Astravium Solutions Pvt. Ltd. is a professional support services company focused on streamlining operations, reducing operational burden, and improving efficiency.</p>
   <p>We operate as an extension of your team, delivering seamless support so you can stay focused on your core business goals.</p>
 </section>
 
-<section>
+<section class="spacious">
   <h2>Our Services</h2>
   <div class="grid">
     <div class="card">
@@ -160,7 +189,7 @@ button {
   </div>
 </section>
 
-<section>
+<section class="spacious">
   <h2>Why Choose Astravium</h2>
   <div class="grid">
     <div class="card"><p>Experienced and skilled professionals.</p></div>
@@ -173,13 +202,13 @@ button {
   <p style="text-align:center; margin-top:30px;">Your challenges become our responsibility, and your outcomes become our focus.</p>
 </section>
 
-<section>
+<section class="compact">
   <h2>About Astravium Solutions</h2>
   <p>Astravium Solutions Pvt. Ltd. was founded to simplify complex business operations through reliable and efficient support services.</p>
   <p>We believe effective support must be proactive, strategic, and value-driven. Our team works closely with clients to understand challenges and deliver solutions with measurable impact.</p>
 </section>
 
-<section>
+<section class="compact">
   <h2>Vision and Mission</h2>
   <div class="grid">
     <div class="card">
@@ -193,7 +222,7 @@ button {
   </div>
 </section>
 
-<section>
+<section class="spacious">
   <h2>Our Core Values</h2>
   <div class="grid">
     <div class="card"><p>Integrity. We operate with honesty, ethics, and transparency.</p></div>
