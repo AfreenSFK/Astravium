@@ -597,7 +597,12 @@
       <h2>Let's Talk About Your Business</h2>
       <p>Tell us your requirements and we'll get back to you within 24 hours.</p>
     </div>
-    <form class="contact-form fade-up" name="contact" method="POST" data-netlify="true">
+    <div id="form-success" style="display:none; text-align:center; padding:48px 24px;">
+      <div style="font-size:48px; margin-bottom:16px;">✓</div>
+      <h3 style="color:#fff; font-size:24px; font-weight:700; margin-bottom:12px;">Message Sent!</h3>
+      <p style="color:var(--text-muted);">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+    </div>
+    <form class="contact-form fade-up" id="contact-form" name="contact" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="contact">
       <div class="form-row">
         <div class="form-group">
@@ -647,6 +652,21 @@
 </footer>
 
 <script>
+  // Contact form — fetch submit to Netlify Forms
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    })
+    .catch(() => alert('Something went wrong. Please email us directly at info@astravium.com'));
+  });
+
   // Navbar scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
