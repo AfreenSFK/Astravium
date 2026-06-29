@@ -214,6 +214,7 @@
       background: var(--bg); border-radius: 18px; padding: 36px;
       border: 1px solid var(--border);
       transition: all 0.3s; position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
     }
     .service-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -231,7 +232,7 @@
     .service-icon svg { width: 26px; height: 26px; }
     .service-card h3 { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; letter-spacing: -0.3px; }
     .service-card p { font-size: 15px; color: var(--text-body); line-height: 1.7; }
-    .service-outcome { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; font-weight: 600; color: var(--teal); }
+    .service-outcome { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; font-weight: 600; color: var(--teal); }
 
     /* ── WHY CHOOSE ── */
     .why { background: var(--bg); }
