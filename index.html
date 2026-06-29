@@ -626,8 +626,10 @@
       <h3 style="color:#fff; font-size:24px; font-weight:700; margin-bottom:12px;">Message Sent!</h3>
       <p style="color:var(--text-muted);">Thank you for reaching out. We'll get back to you within 24 hours.</p>
     </div>
-    <form class="contact-form fade-up" id="contact-form" name="contact" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="contact">
+    <form class="contact-form fade-up" id="contact-form" action="https://formsubmit.co/info@astravium.com" method="POST">
+      <input type="hidden" name="_subject" value="New enquiry — astravium.com">
+      <input type="hidden" name="_next" value="https://www.astravium.com/?sent=1#contact">
+      <input type="hidden" name="_captcha" value="false">
       <div class="form-row">
         <div class="form-group">
           <label>Name <span class="req">*</span></label>
@@ -682,40 +684,11 @@
 </footer>
 
 <script>
-  // Contact form — Netlify Forms AJAX submission
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const btn = form.querySelector('.form-submit');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    const body = new URLSearchParams({
-      'form-name': 'contact',
-      name:    form.querySelector('[name="name"]').value,
-      company: form.querySelector('[name="company"]').value,
-      email:   form.querySelector('[name="email"]').value,
-      phone:   form.querySelector('[name="phone"]').value,
-      message: form.querySelector('[name="message"]').value
-    });
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body.toString()
-    })
-    .then(res => {
-      if (res.ok) {
-        form.style.display = 'none';
-        document.getElementById('form-success').style.display = 'block';
-      } else {
-        throw new Error('failed');
-      }
-    })
-    .catch(() => {
-      btn.textContent = 'Send Message →';
-      btn.disabled = false;
-      alert('Something went wrong. Please email us directly at info@astravium.com');
-    });
-  });
+  // Show success state if redirected back after FormSubmit
+  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
 
   // Navbar scroll effect
   window.addEventListener('scroll', () => {
