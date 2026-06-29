@@ -267,14 +267,13 @@
     .founder { background: var(--bg); }
     .founder-inner { display: grid; grid-template-columns: 280px 1fr; gap: 72px; align-items: center; }
     .founder-avatar {
-      width: 200px; height: 200px; border-radius: 24px;
-      background: linear-gradient(135deg, var(--accent), var(--teal));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 72px; font-weight: 800; color: #fff;
+      width: 260px; height: 300px; border-radius: 24px;
+      overflow: hidden;
       margin: 0 auto;
-      box-shadow: 0 12px 40px rgba(59,130,246,0.25);
+      box-shadow: 0 12px 40px rgba(59,130,246,0.2);
       flex-shrink: 0;
     }
+    .founder-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
     .founder-text .section-tag { margin-bottom: 12px; }
     .founder-text h2 { font-size: clamp(22px,3vw,32px); font-weight: 800; color: var(--text-dark); letter-spacing: -0.6px; margin-bottom: 6px; line-height: 1.2; }
     .founder-text .founder-title { font-size: 15px; font-weight: 600; color: var(--accent); margin-bottom: 20px; }
@@ -660,7 +659,9 @@
 <section class="founder">
   <div class="section-inner">
     <div class="founder-inner">
-      <div class="founder-avatar fade-up">M</div>
+      <div class="founder-avatar fade-up">
+        <img src="manohar.jpg" alt="Manohar — Founder & CEO, Astravium Solutions">
+      </div>
       <div class="founder-text fade-up">
         <div class="section-tag">Leadership</div>
         <h2>Manohar</h2>
