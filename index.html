@@ -1,259 +1,719 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Astravium Solutions Pvt. Ltd.</title>
-<style>
-body {
-  margin: 0;
-  font-family: 'Source Sans 3', Arial, sans-serif;
-  line-height: 1.6;
-  color: #222;
-  background: #ffffff;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Astravium Solutions — Dependable IT, insurance, operations, and customer support services that keep your business running smoothly.">
+  <title>Astravium Solutions | Business Support Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-header {
-  background: linear-gradient(180deg, #0f2a44 0%, #12385c 100%);
-  color: #ffffff;
-  padding: 110px 20px 90px 20px;
-  text-align: center;
-}
+    :root {
+      --dark:        #060D1F;
+      --dark-2:      #0D1B35;
+      --accent:      #3B82F6;
+      --accent-dark: #2563EB;
+      --teal:        #14B8A6;
+      --text-light:  #F1F5F9;
+      --text-muted:  #94A3B8;
+      --text-dark:   #1E293B;
+      --text-body:   #475569;
+      --bg:          #FFFFFF;
+      --bg-alt:      #F8FAFC;
+      --border:      #E2E8F0;
+      --shadow-hover: 0 12px 40px rgba(59,130,246,0.15);
+    }
 
-header h1 {
-  font-family: 'Source Sans 3', Arial, sans-serif;
-  font-size: 34px;
-  font-weight: 500;
-  margin: 16px 0 12px 0;
-}
+    html { scroll-behavior: smooth; }
 
-header p {
-  font-size: 18px;
-  max-width: 720px;
-  margin: 0 auto 30px auto;
-}
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--text-body);
+      background: var(--bg);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-.button-group a {
-  display: inline-block;
-  margin: 8px;
-  padding: 14px 30px;
-  background: #ffffff;
-  color: #0f2a44;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-}
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(6,13,31,0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-brand img { height: 38px; border-radius: 6px; }
+    .nav-brand span { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--accent) !important;
+      color: #fff !important;
+      padding: 10px 22px !important;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--accent-dark) !important; transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
 
-section {
-  padding: 56px 20px;
-}
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(59,130,246,0.14) 0%, transparent 70%);
+      top: -150px; left: -150px;
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, transparent 70%);
+      bottom: -100px; right: -100px;
+      border-radius: 50%;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 860px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.28);
+      color: #93C5FD;
+      padding: 9px 20px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 32px;
+      letter-spacing: 0.2px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.4; transform:scale(1.4); }
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+    .gradient-text {
+      background: linear-gradient(130deg, #60A5FA 0%, #14B8A6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p { font-size: 18px; color: var(--text-muted); max-width: 620px; margin: 0 auto 44px; line-height: 1.75; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff;
+      padding: 14px 28px; border-radius: 10px;
+      text-decoration: none; font-weight: 600; font-size: 15px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 24px rgba(59,130,246,0.35);
+    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(59,130,246,0.45); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: #fff;
+      padding: 14px 28px; border-radius: 10px;
+      text-decoration: none; font-weight: 600; font-size: 15px;
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
 
-section.hero {
-  padding: 90px 20px 70px 20px;
-}
+    /* ── STATS ── */
+    .stats-bar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 52px 24px; }
+    .stats-inner {
+      max-width: 1100px; margin: auto;
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 24px; text-align: center;
+    }
+    .stat-number { font-size: 46px; font-weight: 800; color: var(--text-dark); letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
+    .stat-number span.accent { color: var(--accent); }
+    .stat-label { font-size: 13px; color: var(--text-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; }
 
-section.compact {
-  padding: 44px 20px;
-}
+    /* ── SHARED SECTION STYLES ── */
+    section { padding: 96px 24px; }
+    .section-inner { max-width: 1200px; margin: auto; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(59,130,246,0.08); color: var(--accent);
+      font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 16px;
+    }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header h2 { font-size: clamp(28px,4vw,42px); font-weight: 800; color: var(--text-dark); letter-spacing: -1px; margin-bottom: 16px; line-height: 1.15; }
+    .section-header p { font-size: 17px; color: var(--text-body); max-width: 560px; margin: auto; }
 
-section.spacious {
-  padding: 72px 20px;
-}
+    /* ── SERVICES ── */
+    .services { background: var(--bg-alt); }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .service-card {
+      background: var(--bg); border-radius: 18px; padding: 36px;
+      border: 1px solid var(--border);
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: rgba(59,130,246,0.2); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: rgba(59,130,246,0.08); border-radius: 13px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px; color: var(--accent);
+    }
+    .service-icon svg { width: 26px; height: 26px; }
+    .service-card h3 { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; letter-spacing: -0.3px; }
+    .service-card p { font-size: 15px; color: var(--text-body); line-height: 1.7; }
+    .service-outcome { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; font-weight: 600; color: var(--teal); }
 
-.section-inner {
-  max-width: 1100px;
-  margin: auto;
-}
+    /* ── WHY CHOOSE ── */
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 36px 48px; }
+    .why-item { display: flex; gap: 18px; align-items: flex-start; }
+    .why-icon {
+      flex-shrink: 0; width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--accent), var(--teal));
+      border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff;
+    }
+    .why-icon svg { width: 20px; height: 20px; }
+    .why-item h4 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
+    .why-item p { font-size: 14px; color: var(--text-body); line-height: 1.65; }
 
-section h2 {
-  font-size: 30px;
-  margin-bottom: 28px;
-  text-align: center;
-}
+    /* ── ABOUT ── */
+    .about { background: var(--bg-alt); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-text h2 { font-size: clamp(26px,3.5vw,38px); font-weight: 800; color: var(--text-dark); letter-spacing: -0.8px; margin: 16px 0 20px; line-height: 1.2; }
+    .about-text p { font-size: 16px; color: var(--text-body); margin-bottom: 16px; }
+    .about-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .about-stat-card { background: var(--bg); border-radius: 16px; padding: 28px; border: 1px solid var(--border); text-align: center; }
+    .about-stat-card.featured { background: linear-gradient(135deg, var(--accent), var(--teal)); border: none; }
+    .about-stat-card .big { font-size: 38px; font-weight: 800; line-height: 1; margin-bottom: 8px; color: var(--text-dark); }
+    .about-stat-card.featured .big { color: #fff; }
+    .about-stat-card .lbl { font-size: 13px; font-weight: 500; color: var(--text-body); }
+    .about-stat-card.featured .lbl { color: rgba(255,255,255,0.8); }
 
-section p {
-  max-width: 760px;
-  margin: 0 auto 18px auto;
-}
+    /* ── VISION & MISSION ── */
+    .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .vm-card { background: var(--dark); border-radius: 20px; padding: 48px; position: relative; overflow: hidden; }
+    .vm-card::before {
+      content: ''; position: absolute;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+      top: -60px; right: -60px; border-radius: 50%;
+    }
+    .vm-icon { width: 48px; height: 48px; background: rgba(59,130,246,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #60A5FA; margin-bottom: 22px; }
+    .vm-card h3 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+    .vm-card p { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 36px;
-}
+    /* ── VALUES ── */
+    .values { background: var(--bg-alt); }
+    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .value-card { background: var(--bg); border-radius: 14px; padding: 28px; border: 1px solid var(--border); transition: all 0.2s; }
+    .value-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(59,130,246,0.09); }
+    .value-title { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .value-card p { font-size: 14px; color: var(--text-body); }
 
-.card {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 34px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
-}
+    /* ── CONTACT ── */
+    .contact { background: var(--dark); }
+    .contact .section-header h2 { color: #fff; }
+    .contact .section-header p { color: var(--text-muted); }
+    .contact-form { max-width: 640px; margin: 0 auto; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.6px; }
+    .form-group input,
+    .form-group textarea {
+      width: 100%; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1); color: #fff;
+      padding: 14px 16px; border-radius: 10px;
+      font-size: 15px; font-family: inherit;
+      transition: border-color 0.2s, background 0.2s; outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--accent); background: rgba(59,130,246,0.05); }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.22); }
+    .form-group textarea { resize: vertical; min-height: 140px; }
+    .form-submit {
+      width: 100%; padding: 16px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 10px;
+      font-size: 16px; font-weight: 600; font-family: inherit;
+      cursor: pointer; transition: all 0.2s; margin-top: 8px;
+    }
+    .form-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 14px;
-}
+    /* ── FOOTER ── */
+    footer { background: #030812; color: var(--text-muted); padding: 48px 24px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand img { height: 32px; border-radius: 4px; }
+    .footer-brand span { font-weight: 700; color: #fff; font-size: 16px; }
+    .footer-info { text-align: right; }
+    .footer-info p { font-size: 14px; margin: 4px 0; }
+    .footer-info a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-info a:hover { color: #fff; }
+    .footer-bottom { max-width: 1200px; margin: 24px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 13px; }
 
-.alt-section {
-  background: #f6f7f9;
-}
+    /* ── ANIMATIONS ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-form {
-  max-width: 600px;
-  margin: auto;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 16px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-}
-
-button {
-  padding: 16px;
-  width: 100%;
-  background: #0f2a44;
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-footer {
-  background: #0f2a44;
-  color: #ffffff;
-  padding: 48px 20px;
-  text-align: center;
-}
-
-footer p {
-  margin: 6px 0;
-}
-</style>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .services-grid,
+      .why-grid,
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .about-inner,
+      .vm-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 600px) {
+      .services-grid,
+      .why-grid,
+      .values-grid,
+      .form-row { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 72px; left: 0; right: 0;
+        background: rgba(6,13,31,0.98); padding: 24px; gap: 20px;
+        border-top: 1px solid rgba(255,255,255,0.07);
+      }
+      .hamburger { display: flex; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-info { text-align: center; }
+      .about-visual { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; margin-bottom:40px;">
-    <img src="logo.jpeg" alt="Astravium Solutions Logo" style="height:110px;">
-    <div style="font-family:'Inter', Arial, sans-serif; font-size:42px; font-weight:700; letter-spacing:0.6px;">Astravium Solutions Pvt. Ltd.</div>
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <img src="logo.jpeg" alt="Astravium Solutions">
+      <span>Astravium</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get Started</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
-  <h1>Reliable Support Services That Strengthen Your Business</h1>
-  <p>We deliver dependable, scalable, and cost-effective support services that keep your operations running smoothly and enable confident growth.</p>
-  <div class="button-group">
-    <a href="#contact">Get a Free Consultation</a>
-    <a href="#contact">Contact Our Team</a>
-  </div>
-</header>
+</nav>
 
-<section class="compact">
-  <h2>Who We Are</h2>
-  <p>Astravium Solutions Pvt. Ltd. is a professional support services company focused on streamlining operations, reducing operational burden, and improving efficiency.</p>
-  <p>We operate as an extension of your team, delivering seamless support so you can stay focused on your core business goals.</p>
-</section>
-
-<section class="spacious">
-  <h2>Our Services</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>IT and Technical Support</h3>
-      <p>Proactive system monitoring and issue resolution. Reliable application and infrastructure support. On-demand technical assistance when you need it.</p>
-      <p>Outcome. Reduced downtime and consistently improved system performance.</p>
-    </div>
-    <div class="card">
-      <h3>Insurance Support Services</h3>
-      <p>Personal Lines Insurance. Commercial Lines Insurance. Employee Benefits Insurance.</p>
-    </div>
-    <div class="card">
-      <h3>Business Operations Support</h3>
-      <p>End-to-end process management. Workflow optimization that removes friction. Strong operational coordination.</p>
-      <p>Outcome. Higher efficiency with reduced operational costs.</p>
-    </div>
-    <div class="card">
-      <h3>Customer Support Services</h3>
-      <p>Multi-channel support across email, chat, and calls. Structured issue tracking and resolution. Consistent customer experience management.</p>
-      <p>Outcome. Improved customer satisfaction and stronger retention.</p>
-    </div>
-    <div class="card">
-      <h3>Administrative and Process Support</h3>
-      <p>Accurate documentation and reporting. Reliable back-office operations. Secure and structured data management.</p>
-      <p>Benefit. More time for strategic decision-making.</p>
-    </div>
-    <div class="card">
-      <h3>Customized Support Solutions</h3>
-      <p>Every business operates differently. We design support services tailored precisely to your requirements.</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Trusted Business Support Partner</div>
+    <h1>Support Services That Drive<br><span class="gradient-text">Real Business Growth</span></h1>
+    <p>Dependable, scalable, and cost-effective support services that keep your operations running smoothly and enable confident growth.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get Free Consultation &rarr;</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
     </div>
   </div>
 </section>
 
-<section class="spacious">
-  <h2>Why Choose Astravium</h2>
-  <div class="grid">
-    <div class="card"><p>Experienced and skilled professionals.</p></div>
-    <div class="card"><p>Fast response and reliable delivery.</p></div>
-    <div class="card"><p>Customized support models.</p></div>
-    <div class="card"><p>Transparent communication.</p></div>
-    <div class="card"><p>Cost-effective solutions.</p></div>
-    <div class="card"><p>Long-term partnership mindset.</p></div>
-  </div>
-  <p style="text-align:center; margin-top:30px;">Your challenges become our responsibility, and your outcomes become our focus.</p>
-</section>
-
-<section class="compact">
-  <h2>About Astravium Solutions</h2>
-  <p>Astravium Solutions Pvt. Ltd. was founded to simplify complex business operations through reliable and efficient support services.</p>
-  <p>We believe effective support must be proactive, strategic, and value-driven. Our team works closely with clients to understand challenges and deliver solutions with measurable impact.</p>
-</section>
-
-<section class="compact">
-  <h2>Vision and Mission</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Our Vision</h3>
-      <p>To become a trusted global support services partner known for reliability, integrity, and excellence.</p>
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="fade-up">
+      <div class="stat-number"><span class="counter" data-target="200">0</span><span class="accent">+</span></div>
+      <div class="stat-label">Clients Supported</div>
     </div>
-    <div class="card">
-      <h3>Our Mission</h3>
-      <p>To empower businesses through dependable support services that drive productivity, efficiency, and sustainable growth.</p>
+    <div class="fade-up">
+      <div class="stat-number"><span class="counter" data-target="5">0</span><span class="accent">+</span></div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+    <div class="fade-up">
+      <div class="stat-number"><span class="counter" data-target="98">0</span><span class="accent">%</span></div>
+      <div class="stat-label">Client Retention</div>
+    </div>
+    <div class="fade-up">
+      <div class="stat-number">24<span class="accent">/7</span></div>
+      <div class="stat-label">Support Available</div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="spacious">
-  <h2>Our Core Values</h2>
-  <div class="grid">
-    <div class="card"><p>Integrity. We operate with honesty, ethics, and transparency.</p></div>
-    <div class="card"><p>Commitment. We are dedicated to delivering consistent and reliable support.</p></div>
-    <div class="card"><p>Reliability. Clients can count on us every time.</p></div>
-    <div class="card"><p>Excellence. We strive for continuous improvement in people and processes.</p></div>
-    <div class="card"><p>Customer Focus. Client success defines our success.</p></div>
-    <div class="card"><p>Accountability. We take ownership and deliver results.</p></div>
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-tag">What We Do</div>
+      <h2>Comprehensive Support Services</h2>
+      <p>From IT to insurance, we cover every dimension of business support so you can focus on what matters most.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>IT &amp; Technical Support</h3>
+        <p>Proactive system monitoring, issue resolution, and on-demand technical assistance to keep your infrastructure solid and reliable.</p>
+        <div class="service-outcome">&uarr; Reduced downtime &amp; improved performance</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Insurance Support Services</h3>
+        <p>Personal lines, commercial lines, and employee benefits insurance support handled by experienced, detail-oriented professionals.</p>
+        <div class="service-outcome">&uarr; Accurate, compliant insurance processing</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 1 4.93 19.07"/></svg>
+        </div>
+        <h3>Business Operations Support</h3>
+        <p>End-to-end process management and workflow optimization that removes friction and drives operational efficiency at scale.</p>
+        <div class="service-outcome">&uarr; Lower costs &amp; higher efficiency</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Customer Support Services</h3>
+        <p>Multi-channel support across email, chat, and calls with structured issue tracking and consistent experience management.</p>
+        <div class="service-outcome">&uarr; Better satisfaction &amp; stronger retention</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Administrative &amp; Process Support</h3>
+        <p>Accurate documentation, reliable back-office operations, and secure data management so leadership can focus strategically.</p>
+        <div class="service-outcome">&uarr; More time for high-value decisions</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Customized Support Solutions</h3>
+        <p>Every business is different. We design support services tailored precisely to your unique requirements, goals, and workflows.</p>
+        <div class="service-outcome">&uarr; Built exactly for your business</div>
+      </div>
+    </div>
   </div>
 </section>
 
-
-
-<section id="contact" style="background:#f6f7f9;">
-  <h2>Get in Touch</h2>
-  <p style="text-align:center;">We would love to understand your requirements and help your business grow.</p>
-  <form action="mailto:manohar@astravium.com" method="post" enctype="text/plain">
-    <input type="text" placeholder="Name">
-    <input type="text" placeholder="Company">
-    <input type="email" placeholder="Email">
-    <input type="text" placeholder="Phone">
-    <textarea rows="5" placeholder="Message"></textarea>
-    <button type="submit">Submit</button>
-  </form>
+<!-- WHY CHOOSE -->
+<section id="why">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-tag">Why Astravium</div>
+      <h2>The Difference You'll Feel</h2>
+      <p>Your challenges become our responsibility. Your outcomes become our focus.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <h4>Skilled Professionals</h4>
+          <p>Experienced teams with deep domain expertise across IT, insurance, and business operations.</p>
+        </div>
+      </div>
+      <div class="why-item fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h4>Fast Response &amp; Delivery</h4>
+          <p>Rapid response times and reliable delivery, every time — no compromises on timelines.</p>
+        </div>
+      </div>
+      <div class="why-item fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h4>Customized Models</h4>
+          <p>Support structures designed around your workflows, not a one-size-fits-all template.</p>
+        </div>
+      </div>
+      <div class="why-item fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+          <h4>Transparent Communication</h4>
+          <p>Clear, consistent updates and reporting so you're always in the loop on progress.</p>
+        </div>
+      </div>
+      <div class="why-item fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <h4>Cost-Effective Solutions</h4>
+          <p>Enterprise-grade support at pricing that makes business sense, with no hidden costs.</p>
+        </div>
+      </div>
+      <div class="why-item fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div>
+          <h4>Long-Term Partnership</h4>
+          <p>We invest in understanding your business deeply and grow with you as a trusted partner.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="section-inner">
+    <div class="about-inner">
+      <div class="about-text fade-up">
+        <div class="section-tag">Who We Are</div>
+        <h2>Built to Simplify Complex Business Operations</h2>
+        <p>Astravium Solutions Pvt. Ltd. was founded to simplify complex business operations through reliable and efficient support services.</p>
+        <p>We operate as a seamless extension of your team — proactive, strategic, and value-driven. Our teams work closely with clients to understand challenges and deliver solutions with measurable impact.</p>
+      </div>
+      <div class="about-visual fade-up">
+        <div class="about-stat-card featured">
+          <div class="big">200+</div>
+          <div class="lbl">Businesses Served</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="big">98%</div>
+          <div class="lbl">Retention Rate</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="big">6</div>
+          <div class="lbl">Service Verticals</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="big">24/7</div>
+          <div class="lbl">Always Available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section>
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-tag">Our Direction</div>
+      <h2>Vision &amp; Mission</h2>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-card fade-up">
+        <div class="vm-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <h3>Our Vision</h3>
+        <p>To become a trusted global support services partner known for reliability, integrity, and excellence across every client engagement.</p>
+      </div>
+      <div class="vm-card fade-up">
+        <div class="vm-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Our Mission</h3>
+        <p>To empower businesses through dependable support services that drive productivity, efficiency, and sustainable growth — delivered with care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="values">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-tag">Our Values</div>
+      <h2>What We Stand By</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-up">
+        <div class="value-title">Integrity</div>
+        <p>We operate with honesty, ethics, and full transparency in every interaction.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-title">Commitment</div>
+        <p>Dedicated to delivering consistent, reliable support that clients can always count on.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-title">Reliability</div>
+        <p>When you need us, we're there — every single time, without exception.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-title">Excellence</div>
+        <p>We pursue continuous improvement in our people, processes, and outcomes.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-title">Customer Focus</div>
+        <p>Your success is our success. Every decision we make centers on your outcomes.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-title">Accountability</div>
+        <p>We take full ownership of our work and deliver on every commitment we make.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-tag">Get in Touch</div>
+      <h2>Let's Talk About Your Business</h2>
+      <p>Tell us your requirements and we'll get back to you within 24 hours.</p>
+    </div>
+    <form class="contact-form fade-up" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label>Company</label>
+          <input type="text" name="company" placeholder="Company name">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="+1 (000) 000-0000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" placeholder="Tell us about your requirements..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message &rarr;</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <p>Astravium Solutions Pvt. Ltd.</p>
-  <p>Phone. +91 988 559 2434</p>
-  <p>www.astravium.com</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.jpeg" alt="Astravium Solutions">
+      <span>Astravium Solutions</span>
+    </div>
+    <div class="footer-info">
+      <p>Phone: <a href="tel:+919885592434">+91 988 559 2434</a></p>
+      <p>Email: <a href="mailto:info@astravium.com">info@astravium.com</a></p>
+      <p><a href="https://www.astravium.com">www.astravium.com</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Astravium Solutions Pvt. Ltd. All rights reserved.</p>
+  </div>
 </footer>
+
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile hamburger menu
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // Fade-up on scroll (staggered per group)
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+  // Counter animation
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      let current = 0;
+      const step = target / 55;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = Math.floor(current);
+      }, 18);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+</script>
 
 </body>
 </html>
