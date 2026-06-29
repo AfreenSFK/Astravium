@@ -209,6 +209,7 @@
     .service-outcome { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; font-weight: 600; color: var(--teal); }
 
     /* ── WHY CHOOSE ── */
+    .why { background: var(--bg-alt); }
     .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 36px 48px; }
     .why-item { display: flex; gap: 18px; align-items: flex-start; }
     .why-icon {
@@ -237,6 +238,9 @@
     .about-text p { font-size: 16px; color: var(--text-body); margin-bottom: 16px; }
 
     /* ── VISION & MISSION ── */
+    .vm-section { background: var(--dark); }
+    .vm-section .section-tag { background: rgba(59,130,246,0.15); color: #60A5FA; }
+    .vm-section .section-header h2 { color: #fff; }
     .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
     .vm-card { background: var(--dark); border-radius: 20px; padding: 48px; position: relative; overflow: hidden; }
     .vm-card::before {
@@ -429,7 +433,7 @@
 </section>
 
 <!-- WHY CHOOSE -->
-<section id="why">
+<section id="why" class="why">
   <div class="section-inner">
     <div class="section-header fade-up">
       <div class="section-tag">Why Astravium</div>
@@ -528,7 +532,7 @@
 </section>
 
 <!-- VISION & MISSION -->
-<section>
+<section class="vm-section">
   <div class="section-inner">
     <div class="section-header fade-up">
       <div class="section-tag">Our Direction</div>
