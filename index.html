@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Astravium Solutions — Dependable IT, insurance, operations, and customer support services that keep your business running smoothly.">
   <title>Astravium Solutions | Business Support Services</title>
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.astravium.com/">
+  <meta property="og:title" content="Astravium Solutions | Business Support Services">
+  <meta property="og:description" content="Dependable IT, insurance, operations, and customer support services that keep your business running smoothly and enable confident growth.">
+  <meta property="og:image" content="https://www.astravium.com/logo.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Astravium Solutions | Business Support Services">
+  <meta name="twitter:description" content="Dependable IT, insurance, operations, and customer support services that keep your business running smoothly and enable confident growth.">
+  <meta name="twitter:image" content="https://www.astravium.com/logo.jpeg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -78,6 +88,9 @@
     .nav-cta:hover { background: var(--accent-dark) !important; transform: translateY(-1px); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ── HERO ── */
     .hero {
@@ -209,7 +222,7 @@
     .service-outcome { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; font-weight: 600; color: var(--teal); }
 
     /* ── WHY CHOOSE ── */
-    .why { background: var(--bg-alt); }
+    .why { background: var(--bg); }
     .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 36px 48px; }
     .why-item { display: flex; gap: 18px; align-items: flex-start; }
     .why-icon {
@@ -242,7 +255,7 @@
     .vm-section .section-tag { background: rgba(59,130,246,0.15); color: #60A5FA; }
     .vm-section .section-header h2 { color: #fff; }
     .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-    .vm-card { background: var(--dark); border-radius: 20px; padding: 48px; position: relative; overflow: hidden; }
+    .vm-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 48px; position: relative; overflow: hidden; }
     .vm-card::before {
       content: ''; position: absolute;
       width: 220px; height: 220px;
@@ -269,6 +282,7 @@
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .form-group { margin-bottom: 16px; }
     .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.6px; }
+    .form-group label .req { color: var(--accent); margin-left: 3px; }
     .form-group input,
     .form-group textarea {
       width: 100%; background: rgba(255,255,255,0.05);
@@ -293,10 +307,13 @@
 
     /* ── FOOTER ── */
     footer { background: #030812; color: var(--text-muted); padding: 48px 24px; border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .footer-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; }
     .footer-brand { display: flex; align-items: center; gap: 10px; }
     .footer-brand img { height: 32px; border-radius: 4px; }
     .footer-brand span { font-weight: 700; color: #fff; font-size: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
     .footer-info { text-align: right; }
     .footer-info p { font-size: 14px; margin: 4px 0; }
     .footer-info a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
@@ -330,8 +347,9 @@
         border-top: 1px solid rgba(255,255,255,0.07);
       }
       .hamburger { display: flex; }
-      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; }
       .footer-info { text-align: center; }
+      .footer-links { align-items: center; }
       .about-visual { grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -364,7 +382,7 @@
     <h1>Support Services That Drive<br><span class="gradient-text">Real Business Growth</span></h1>
     <p>Dependable, scalable, and cost-effective support services that keep your operations running smoothly and enable confident growth.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Get Free Consultation &rarr;</a>
+      <a href="#contact" class="btn-primary">Start a Conversation &rarr;</a>
       <a href="#services" class="btn-outline">Explore Services</a>
     </div>
   </div>
@@ -610,7 +628,7 @@
       <input type="hidden" name="_subject" value="New enquiry from astravium.com">
       <div class="form-row">
         <div class="form-group">
-          <label>Name</label>
+          <label>Name <span class="req">*</span></label>
           <input type="text" name="name" placeholder="Your name" required>
         </div>
         <div class="form-group">
@@ -620,7 +638,7 @@
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Email</label>
+          <label>Email <span class="req">*</span></label>
           <input type="email" name="email" placeholder="you@company.com" required>
         </div>
         <div class="form-group">
@@ -629,7 +647,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label>Message</label>
+        <label>Message <span class="req">*</span></label>
         <textarea name="message" placeholder="Tell us about your requirements..." required></textarea>
       </div>
       <button type="submit" class="form-submit">Send Message &rarr;</button>
@@ -644,6 +662,12 @@
       <img src="logo.jpeg" alt="Astravium Solutions">
       <span>Astravium Solutions</span>
     </div>
+    <nav class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <div class="footer-info">
       <p>Phone: <a href="tel:+919885592434">+91 988 559 2434</a></p>
       <p>Email: <a href="mailto:info@astravium.com">info@astravium.com</a></p>
@@ -700,6 +724,7 @@
   // Mobile hamburger menu
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
   }
 
   // Fade-up on scroll (staggered per group)
