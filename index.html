@@ -168,16 +168,6 @@
     }
     .btn-outline:hover { border-color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
 
-    /* ── STATS ── */
-    .stats-bar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 52px 24px; }
-    .stats-inner {
-      max-width: 1100px; margin: auto;
-      display: grid; grid-template-columns: repeat(4,1fr);
-      gap: 24px; text-align: center;
-    }
-    .stat-number { font-size: 46px; font-weight: 800; color: var(--text-dark); letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
-    .stat-number span.accent { color: var(--accent); }
-    .stat-label { font-size: 13px; color: var(--text-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; }
 
     /* ── SHARED SECTION STYLES ── */
     section { padding: 96px 24px; }
@@ -233,15 +223,18 @@
     /* ── ABOUT ── */
     .about { background: var(--bg-alt); }
     .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .about-pill {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--bg); border-radius: 14px; padding: 22px 20px;
+      border: 1px solid var(--border);
+      font-size: 15px; font-weight: 600; color: var(--text-dark);
+      transition: all 0.2s;
+    }
+    .about-pill:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(59,130,246,0.1); }
+    .about-pill svg { color: var(--accent); flex-shrink: 0; }
     .about-text h2 { font-size: clamp(26px,3.5vw,38px); font-weight: 800; color: var(--text-dark); letter-spacing: -0.8px; margin: 16px 0 20px; line-height: 1.2; }
     .about-text p { font-size: 16px; color: var(--text-body); margin-bottom: 16px; }
-    .about-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .about-stat-card { background: var(--bg); border-radius: 16px; padding: 28px; border: 1px solid var(--border); text-align: center; }
-    .about-stat-card.featured { background: linear-gradient(135deg, var(--accent), var(--teal)); border: none; }
-    .about-stat-card .big { font-size: 38px; font-weight: 800; line-height: 1; margin-bottom: 8px; color: var(--text-dark); }
-    .about-stat-card.featured .big { color: #fff; }
-    .about-stat-card .lbl { font-size: 13px; font-weight: 500; color: var(--text-body); }
-    .about-stat-card.featured .lbl { color: rgba(255,255,255,0.8); }
 
     /* ── VISION & MISSION ── */
     .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -373,27 +366,6 @@
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="fade-up">
-      <div class="stat-number"><span class="counter" data-target="200">0</span><span class="accent">+</span></div>
-      <div class="stat-label">Clients Supported</div>
-    </div>
-    <div class="fade-up">
-      <div class="stat-number"><span class="counter" data-target="5">0</span><span class="accent">+</span></div>
-      <div class="stat-label">Years of Excellence</div>
-    </div>
-    <div class="fade-up">
-      <div class="stat-number"><span class="counter" data-target="98">0</span><span class="accent">%</span></div>
-      <div class="stat-label">Client Retention</div>
-    </div>
-    <div class="fade-up">
-      <div class="stat-number">24<span class="accent">/7</span></div>
-      <div class="stat-label">Support Available</div>
-    </div>
-  </div>
-</div>
 
 <!-- SERVICES -->
 <section id="services" class="services">
@@ -534,21 +506,21 @@
         <p>We operate as a seamless extension of your team — proactive, strategic, and value-driven. Our teams work closely with clients to understand challenges and deliver solutions with measurable impact.</p>
       </div>
       <div class="about-visual fade-up">
-        <div class="about-stat-card featured">
-          <div class="big">200+</div>
-          <div class="lbl">Businesses Served</div>
+        <div class="about-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Expert Team</span>
         </div>
-        <div class="about-stat-card">
-          <div class="big">98%</div>
-          <div class="lbl">Retention Rate</div>
+        <div class="about-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>6 Service Verticals</span>
         </div>
-        <div class="about-stat-card">
-          <div class="big">6</div>
-          <div class="lbl">Service Verticals</div>
+        <div class="about-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>24/7 Availability</span>
         </div>
-        <div class="about-stat-card">
-          <div class="big">24/7</div>
-          <div class="lbl">Always Available</div>
+        <div class="about-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span>Scalable Support</span>
         </div>
       </div>
     </div>
@@ -696,23 +668,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
 
-  // Counter animation
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = parseInt(el.dataset.target);
-      let current = 0;
-      const step = target / 55;
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) { current = target; clearInterval(timer); }
-        el.textContent = Math.floor(current);
-      }, 18);
-      counterObserver.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 </script>
 
 </body>
