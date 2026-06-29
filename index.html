@@ -46,15 +46,17 @@
     }
 
     /* ── NAVBAR ── */
-    nav {
+    #navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 1000;
       padding: 0 24px;
+      background: rgba(6,13,31,0.75);
+      backdrop-filter: blur(8px);
       transition: background 0.3s, box-shadow 0.3s;
     }
-    nav.scrolled {
-      background: rgba(6,13,31,0.96);
+    #navbar.scrolled {
+      background: rgba(6,13,31,0.97);
       backdrop-filter: blur(14px);
       box-shadow: 0 1px 0 rgba(255,255,255,0.07);
     }
@@ -359,7 +361,7 @@
 <!-- NAVBAR -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#" class="nav-brand">
+    <a href="/" class="nav-brand">
       <img src="logo.jpeg" alt="Astravium Solutions">
       <span>Astravium</span>
     </a>
@@ -624,8 +626,8 @@
       <h3 style="color:#fff; font-size:24px; font-weight:700; margin-bottom:12px;">Message Sent!</h3>
       <p style="color:var(--text-muted);">Thank you for reaching out. We'll get back to you within 24 hours.</p>
     </div>
-    <form class="contact-form fade-up" id="contact-form">
-      <input type="hidden" name="_subject" value="New enquiry from astravium.com">
+    <form class="contact-form fade-up" id="contact-form" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact">
       <div class="form-row">
         <div class="form-group">
           <label>Name <span class="req">*</span></label>
@@ -662,12 +664,12 @@
       <img src="logo.jpeg" alt="Astravium Solutions">
       <span>Astravium Solutions</span>
     </div>
-    <nav class="footer-links">
+    <div class="footer-links">
       <a href="#services">Services</a>
       <a href="#why">Why Us</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-    </nav>
+    </div>
     <div class="footer-info">
       <p>Phone: <a href="tel:+919885592434">+91 988 559 2434</a></p>
       <p>Email: <a href="mailto:info@astravium.com">info@astravium.com</a></p>
@@ -680,29 +682,28 @@
 </footer>
 
 <script>
-  // Contact form — submit via FormSubmit AJAX
+  // Contact form — Netlify Forms AJAX submission
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const form = e.target;
     const btn = form.querySelector('.form-submit');
     btn.textContent = 'Sending...';
     btn.disabled = true;
-    const data = {
+    const body = new URLSearchParams({
+      'form-name': 'contact',
       name:    form.querySelector('[name="name"]').value,
       company: form.querySelector('[name="company"]').value,
       email:   form.querySelector('[name="email"]').value,
       phone:   form.querySelector('[name="phone"]').value,
-      message: form.querySelector('[name="message"]').value,
-      _subject: 'New enquiry from astravium.com'
-    };
-    fetch('https://formsubmit.co/ajax/info@astravium.com', {
+      message: form.querySelector('[name="message"]').value
+    });
+    fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
     })
-    .then(res => res.json())
     .then(res => {
-      if (res.success === 'true' || res.success === true) {
+      if (res.ok) {
         form.style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
       } else {
