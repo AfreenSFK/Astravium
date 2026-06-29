@@ -297,7 +297,7 @@
     .clients .section-tag { background: rgba(59,130,246,0.15); color: #60A5FA; }
     .clients .section-header h2 { color: #fff; }
     .clients .section-header p { color: var(--text-muted); }
-    .clients-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .clients-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
     .client-card {
       background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
       border-radius: 20px; padding: 40px;
@@ -336,8 +336,11 @@
       font-size: 36px; color: var(--teal); line-height: 0;
       vertical-align: -12px; margin-right: 4px; font-style: normal;
     }
-    .client-attribution { font-size: 12px; font-weight: 700; color: var(--teal); letter-spacing: 0.5px; }
-    @media (max-width: 768px) { .clients-grid { grid-template-columns: 1fr; } }
+    .client-attribution { font-size: 12px; font-weight: 700; color: var(--teal); letter-spacing: 0.5px; margin-bottom: 10px; }
+    .client-website { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .client-website:hover { color: #fff; }
+    @media (max-width: 960px) { .clients-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .clients-grid { grid-template-columns: 1fr; } }
 
     /* ── VISION & MISSION ── */
     .vm-section { background: var(--dark); }
@@ -693,7 +696,8 @@
         </div>
         <div class="client-testimonial">
           <blockquote>Astravium has been a key partner in helping us scale our teams with the right talent. Their workforce solutions are fast, targeted, and aligned with the demands of a fast-moving technology business.</blockquote>
-          <div class="client-attribution">— Ameya Intelligent Machine Labs</div>
+          <div class="client-attribution">— Santhi Raj Konda, CEO, Ameya Intelligent Machine Labs</div>
+          <a href="https://www.ameyalabs.com/" target="_blank" rel="noopener" class="client-website">ameyalabs.com ↗</a>
         </div>
       </div>
 
@@ -710,7 +714,26 @@
         </div>
         <div class="client-testimonial">
           <blockquote>Finding specialized AI and automation talent is hard. Astravium understands what we need and consistently delivers professionals who contribute from day one — helping us ship faster and grow with confidence.</blockquote>
-          <div class="client-attribution">— AIQUAN</div>
+          <div class="client-attribution">— Rajarathnam Emmadi, COO, AIQUAN</div>
+          <a href="https://aiquan.ai/" target="_blank" rel="noopener" class="client-website">aiquan.ai ↗</a>
+        </div>
+      </div>
+
+      <div class="client-card fade-up">
+        <div class="client-logo-wrap">
+          <img src="talentrift-logo.jpeg" alt="Talentrift">
+        </div>
+        <h3>Talentrift</h3>
+        <p class="client-desc">A modern talent and career solutions company connecting skilled professionals with high-growth organisations through recruitment expertise and a people-first approach.</p>
+        <div class="client-services">
+          <span class="client-service-tag">Talent Acquisition</span>
+          <span class="client-service-tag">Executive Search</span>
+          <span class="client-service-tag">Workforce Solutions</span>
+        </div>
+        <div class="client-testimonial">
+          <blockquote>As a talent solutions company ourselves, we hold our partners to a high standard. Astravium consistently delivers — bringing quality candidates who align with our clients' needs and culture, exactly when we need them.</blockquote>
+          <div class="client-attribution">— Sandeep Taak, Director, Talentrift</div>
+          <a href="https://talentriff.com/" target="_blank" rel="noopener" class="client-website">talentriff.com ↗</a>
         </div>
       </div>
 
