@@ -602,8 +602,8 @@
       <h3 style="color:#fff; font-size:24px; font-weight:700; margin-bottom:12px;">Message Sent!</h3>
       <p style="color:var(--text-muted);">Thank you for reaching out. We'll get back to you within 24 hours.</p>
     </div>
-    <form class="contact-form fade-up" id="contact-form" name="contact" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="contact">
+    <form class="contact-form fade-up" id="contact-form">
+      <input type="hidden" name="_subject" value="New enquiry from astravium.com">
       <div class="form-row">
         <div class="form-group">
           <label>Name</label>
@@ -652,19 +652,40 @@
 </footer>
 
 <script>
-  // Contact form — fetch submit to Netlify Forms
+  // Contact form — submit via FormSubmit AJAX
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const form = e.target;
-    const data = new FormData(form);
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    const data = {
+      name:    form.querySelector('[name="name"]').value,
+      company: form.querySelector('[name="company"]').value,
+      email:   form.querySelector('[name="email"]').value,
+      phone:   form.querySelector('[name="phone"]').value,
+      message: form.querySelector('[name="message"]').value,
+      _subject: 'New enquiry from astravium.com'
+    };
+    fetch('https://formsubmit.co/ajax/info@astravium.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
     })
-    .then(() => {
-      form.style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
+    .then(res => res.json())
+    .then(res => {
+      if (res.success === 'true' || res.success === true) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        throw new Error('failed');
+      }
     })
-    .catch(() => alert('Something went wrong. Please email us directly at info@astravium.com'));
+    .catch(() => {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us directly at info@astravium.com');
+    });
   });
 
   // Navbar scroll effect
